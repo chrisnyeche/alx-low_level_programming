@@ -1,11 +1,13 @@
-#include<unistd.h>
+#include <stdio.h>
+#include <unistd.h>
+
 /**
- * main - prints the standrad error sandwiched around the  standard outpu/t
+ * main - Entry point
  *
- * Return: returns 1
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59);
-return (1);
+	write(1, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 59);
+	return (1);
 }
