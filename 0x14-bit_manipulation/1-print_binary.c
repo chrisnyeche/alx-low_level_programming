@@ -1,26 +1,21 @@
 #include "main.h"
 
 /**
- * print_binary - prints the binary equivalent of a decimal number
- * @n: number to print in binary
+ * print_binary - print a number as binary
+ * @n: number to print as binary
  */
 void print_binary(unsigned long int n)
 {
-    int i, count = 0;
-    unsigned long int current;
+	unsigned long int bits = sizeof(long int) * 8, lead_zero = 1;
+	unsigned long int bit = 1;
 
-    for (i = 63; i >= 0; i--)
-    {
-        current = n >> i;
-
-        if (current & 1)
-        {
-            _putchar('1');
-            count++;
-        }
-        else if (count)
-            _putchar('0');
-    }
-    if (!count)
-        _putchar('0');
+	for (bit = bit << (bits - 1); bit; bit = bit >> 1)
+	{
+		if ((n & bit) && lead_zero)
+			lead_zero = 0;
+		if (!lead_zero)
+			_putchar(((n & bit) ? 1 : 0) + '0');
+	}
+	if (lead_zero)
+		_putchar('0');
 }
